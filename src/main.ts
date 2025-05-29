@@ -18,6 +18,16 @@ import cors from 'cors';
 import express, { json, NextFunction, Request, Response, urlencoded } from 'express';
 import { join } from 'path';
 
+import axios from 'axios';
+
+axios.post('https://SEU-N8N-URL/webhook/NOME-DO-WEBHOOK', {
+    test: 'Webhook manual de teste',
+    timestamp: new Date().toISOString(),
+})
+.then(() => console.log('Webhook teste enviado!'))
+.catch(err => console.error('Erro no webhook teste', err));
+
+
 function initWA() {
   waMonitor.loadInstance();
 }
